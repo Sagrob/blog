@@ -30,12 +30,7 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'index'%}">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'about' %}">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'contact' %}">Contact</a></li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'post' %}">Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'login' %}">Login</a></li>
-                        {% endif %}
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'signup' %}">Sing-up</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,26 +41,24 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>About Us</h1>
-                            <span class="subheading">This is what we do.</span>
+                            <h1>Login</h1>
+                            <span class="subheading"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-        <main class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Welcome to Vinylog, your meeting point for everything related to the world of music! Here, we celebrate the magic of vinyl records and the rich tapestry of sound they offer. From in-depth reviews of classic albums and new releases to tips for caring for your collection and exploring new artists, Vinylog is the place where your passion for vinyl comes to life.</p>
-                        <p>At Vinylog, we believe that each record tells a story and that the experience of listening to vinyl is unique and irreplaceable. Our mission is to share this passion with you by offering engaging and informative content for seasoned collectors and passionate novices alike.</p>
-                        <p>Explore our in-depth reviews, discover the story behind the albums you love, and dive into tips and tricks to enhance your listening experience. If you are a vinyl lover or just starting your journey into this fascinating world, Vinylog is your definitive guide.</p>
-                        <p>Join us and celebrate the sounds of the past and present with a daily dose of vinyl love!</p>
-                    </div>
-                </div>
-            </div>
-        </main>
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <form method="post" class="text-center mb-3">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </body>
+        </html>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
