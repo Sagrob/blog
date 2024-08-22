@@ -1,0 +1,15 @@
+{% block content %}
+  <h1>Publications</h1>
+  <ul>
+    {% for publication in publications %}
+      <li>
+        <h2>{{ publication.title }}</h2>
+        <p>Author: {{ publication.author.name }}</p>
+        <p>Published on: {{ publication.date_publication }}</p>
+        <p>{{ publication.pub_text }}</p>
+      </li>
+    {% empty %}
+      <li>No publications available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
