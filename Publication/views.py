@@ -5,7 +5,11 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .models import Publication
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'Publications':Publication})
+
+def page(request):
+    Publications = Publication.objects.all()
+    return render(request, 'index1.html', {'Publications': Publications})
 
 def about(request):
     return render(request, 'about.html')
@@ -49,18 +53,19 @@ def contact_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('contact_success')
+            return redirect('contact')
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
 #post
+
 def Post_view(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('post_success')
+            return redirect('page')
     else:
         form = PostForm()
     return render(request, 'post.html', {'form': form})
@@ -70,6 +75,3 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
-def publication_list(request):
-    publications = Publication.objects.all()
-    return render(request, 'publications.html', {'publications': publications})
