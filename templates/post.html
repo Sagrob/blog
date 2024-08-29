@@ -87,11 +87,11 @@
                                 <!-- an error submitting the form-->
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
-                            <form action="postForm" method="post">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
-                            </form>
+                                <form method="post" id="PostForm">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button class="bt1" type="submit">Postar</button>
+                                  </form>
                         </div>
                     </div>
                 </div>

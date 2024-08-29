@@ -24,6 +24,7 @@ class PostFormSubmission(models.Model):
     title = models.CharField(max_length=75)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=20,  default='author')
 
     def __str__(self):
         return f"{self.title} - {self.created_at}"

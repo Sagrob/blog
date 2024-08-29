@@ -9,4 +9,4 @@ class ContactForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = PostFormSubmission
-        fields = ('title', 'message')
+        fields = ('title', 'message', 'author')
